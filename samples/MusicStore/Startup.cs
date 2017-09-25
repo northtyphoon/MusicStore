@@ -28,6 +28,11 @@ namespace MusicStore
                 //All environment variables in the process's context flow in as configuration values.
                 .AddEnvironmentVariables();
 
+            if (hostingEnvironment.IsDevelopment())
+            {
+                builder.AddApplicationInsightsSettings(developerMode: true);
+            }
+
             Configuration = builder.Build();
             _platform = new Platform();
         }
@@ -128,6 +133,8 @@ namespace MusicStore
                 options.ClientId = "000000004012C08A";
                 options.ClientSecret = "GaMQ2hCnqAC6EcDLnXsAeBVIJOLmeutL";
             });
+
+            services.AddApplicationInsightsTelemetry(Configuration);
         }
 
         //This method is invoked when ASPNETCORE_ENVIRONMENT is 'Development' or is not defined

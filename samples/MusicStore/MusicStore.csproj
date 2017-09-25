@@ -9,6 +9,7 @@
     <MvcRazorCompileOnPublish>true</MvcRazorCompileOnPublish>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <RuntimeIdentifiers Condition="'$(RUN_RUNTIME_STORE_TESTS)' != 'true'">win7-x86;win7-x64;linux-x64;osx-x64</RuntimeIdentifiers>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.AspNetCoreModule" Version="$(AspNetCoreModuleVersion)" />
   </ItemGroup>
 
